@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>仕事のモヤモヤ正体診断｜ジョブハピ滝川</title>
+<meta name="description" content="10問・2分。悩みに名前がつくと、人は動ける。国家資格キャリアコンサルタント×タロットのジョブハピ滝川がつくった、仕事のモヤモヤの正体を言葉にする無料診断です。">
+<meta property="og:title" content="仕事のモヤモヤ正体診断">
+<meta property="og:description" content="悩みに名前がつくと、人は動ける。10問・2分の無料診断。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#171A33;
+  --night-deep:#0F1126;
+  --gold:#C9A24B;
+  --gold-soft:#E4CD8B;
+  --paper:#F7F3E9;
+  --ink:#2B2A33;
+  --ink-soft:#5A5966;
+  --mist:#9FA3C4;
+  --serif:'Shippori Mincho B1', serif;
+  --sans:'Zen Kaku Gothic New', sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  background:
+    radial-gradient(1px 1px at 18% 22%, rgba(228,205,139,.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 12%, rgba(228,205,139,.4) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 85% 45%, rgba(228,205,139,.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 32% 68%, rgba(228,205,139,.3) 50%, transparent 51%),
+    radial-gradient(1px 1px at 60% 85%, rgba(228,205,139,.45) 50%, transparent 51%),
+    linear-gradient(180deg, var(--night-deep) 0%, var(--night) 55%, #1D2140 100%);
+  background-attachment:fixed;
+  color:var(--paper);
+  min-height:100vh;
+  line-height:1.9;
+}
+.wrap{max-width:560px;margin:0 auto;padding:28px 22px 64px}
+.screen{display:none}
+.screen.active{display:block;animation:fadein .5s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ---------- 共通パーツ ---------- */
+.eyebrow{
+  font-size:12px;letter-spacing:.32em;color:var(--gold-soft);
+  text-align:center;text-transform:uppercase;margin-bottom:14px;
+}
+.rule{
+  width:56px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:22px auto;border:none;
+}
+.btn{
+  display:block;width:100%;padding:16px 20px;border-radius:6px;
+  font-family:var(--sans);font-size:16px;font-weight:700;letter-spacing:.08em;
+  cursor:pointer;text-align:center;text-decoration:none;
+  transition:transform .15s ease, opacity .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn:active{transform:scale(.98)}
+.btn-gold{
+  background:linear-gradient(135deg,#D4B05C,var(--gold));
+  color:var(--night-deep);border:none;
+  box-shadow:0 6px 24px rgba(201,162,75,.28);
+}
+.btn-ghost{
+  background:transparent;color:var(--mist);border:1px solid rgba(159,163,196,.35);
+  font-weight:500;font-size:14px;
+}
+.footer-note{
+  margin-top:48px;text-align:center;font-size:11.5px;color:var(--mist);line-height:2;
+}
+.footer-note a{color:var(--mist)}
+
+/* ---------- イントロ ---------- */
+#intro .brand{
+  text-align:center;font-size:12.5px;letter-spacing:.18em;color:var(--mist);margin-bottom:34px;
+}
+#intro h1{
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(26px,7.2vw,40px);line-height:1.6;letter-spacing:.06em;
+  text-align:center;margin-bottom:8px;
+}
+#intro h1 .line{display:inline-block}
+#intro h1 .accent{color:var(--gold-soft)}
+#intro .subtitle{
+  text-align:center;font-family:var(--serif);font-size:15px;letter-spacing:.24em;
+  color:var(--gold-soft);margin-bottom:30px;
+}
+#intro .lede{
+  font-size:14.5px;color:#D8D5E6;line-height:2.15;margin-bottom:8px;
+}
+#intro .meta{
+  display:flex;justify-content:center;gap:26px;margin:30px 0 34px;
+  font-size:13px;color:var(--mist);letter-spacing:.1em;
+}
+#intro .meta span b{color:var(--gold-soft);font-family:var(--serif);font-size:17px;margin-right:2px}
+
+/* ---------- 設問 ---------- */
+#quiz .progress-label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:12px;letter-spacing:.2em;color:var(--mist);margin-bottom:8px;
+}
+#quiz .progress-label b{font-family:var(--serif);font-size:18px;color:var(--gold-soft);letter-spacing:.05em}
+.progress-track{height:2px;background:rgba(159,163,196,.25);border-radius:2px;overflow:hidden;margin-bottom:44px}
+.progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-soft));transition:width .4s ease}
+#quiz .qtext{
+  font-family:var(--serif);font-weight:600;
+  font-size:clamp(19px,5.6vw,23px);line-height:1.9;letter-spacing:.04em;
+  min-height:5.4em;margin-bottom:34px;
+}
+.opt{
+  background:rgba(247,243,233,.05);
+  border:1px solid rgba(228,205,139,.32);
+  color:var(--paper);border-radius:6px;
+  margin-bottom:14px;font-weight:500;
+}
+.opt:hover{background:rgba(228,205,139,.12)}
+#quiz .back{
+  margin-top:26px;background:none;border:none;color:var(--mist);
+  font-family:var(--sans);font-size:13px;letter-spacing:.1em;cursor:pointer;
+  text-decoration:underline;text-underline-offset:4px;
+}
+
+/* ---------- 結果：カード ---------- */
+.card-stage{display:flex;justify-content:center;margin:30px 0 10px;perspective:1200px}
+.tarot{
+  width:190px;height:316px;position:relative;
+  transform-style:preserve-3d;
+  transition:transform 1.1s cubic-bezier(.2,.7,.25,1);
+}
+.tarot.flipped{transform:rotateY(180deg)}
+.tarot-face{
+  position:absolute;inset:0;border-radius:10px;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  overflow:hidden;
+}
+.tarot-back{
+  background:
+    radial-gradient(circle at 50% 50%, rgba(228,205,139,.16) 0, transparent 42%),
+    repeating-linear-gradient(45deg, rgba(228,205,139,.1) 0 2px, transparent 2px 14px),
+    linear-gradient(160deg,#23274B,#14162E);
+  border:1px solid rgba(228,205,139,.5);
+  box-shadow:0 14px 44px rgba(0,0,0,.5);
+}
+.tarot-back::after{
+  content:'✶';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-size:34px;color:var(--gold-soft);opacity:.8;
+}
+.tarot-front{
+  transform:rotateY(180deg);
+  background:linear-gradient(170deg,#FBF8F0,#EFE8D6);
+  border:1px solid var(--gold);
+  box-shadow:0 14px 44px rgba(0,0,0,.5);
+  color:var(--ink);
+  display:flex;flex-direction:column;
+}
+.tarot-front .inner{
+  position:absolute;inset:9px;border:1px solid rgba(201,162,75,.65);border-radius:6px;
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+  padding:16px 12px;
+}
+.tarot-front .numeral{
+  font-family:var(--serif);font-size:15px;letter-spacing:.28em;color:#8A6E2F;
+}
+.tarot-front .cname{
+  font-family:var(--serif);font-weight:700;font-size:30px;letter-spacing:.3em;
+  writing-mode:vertical-rl;color:var(--ink);
+}
+.tarot-front .orn{font-size:15px;color:var(--gold);letter-spacing:.4em}
+.tarot-front img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:9px;
+}
+.card-caption{text-align:center;font-size:12px;letter-spacing:.28em;color:var(--mist);margin-bottom:26px}
+
+/* ---------- 結果：本文 ---------- */
+#result .rtitle{
+  text-align:center;font-family:var(--serif);font-weight:700;
+  font-size:clamp(24px,6.8vw,30px);letter-spacing:.06em;line-height:1.7;margin-bottom:6px;
+}
+#result .rsub{
+  text-align:center;font-size:13.5px;color:var(--gold-soft);letter-spacing:.12em;margin-bottom:30px;
+}
+.paper-box{
+  background:var(--paper);color:var(--ink);border-radius:8px;
+  padding:26px 24px;margin-bottom:18px;
+  box-shadow:0 10px 34px rgba(0,0,0,.32);
+}
+.paper-box .label{
+  font-size:11.5px;letter-spacing:.3em;color:#8A6E2F;font-weight:700;margin-bottom:12px;
+}
+.paper-box p{font-size:14.5px;line-height:2.2;color:var(--ink)}
+.paper-box p + p{margin-top:14px}
+.paper-box .aside{color:var(--ink-soft);font-size:13.5px}
+.cta-box{
+  background:rgba(247,243,233,.06);
+  border:1px solid rgba(228,205,139,.4);border-radius:8px;
+  padding:22px 20px;margin:30px 0 14px;
+}
+.profile{display:flex;align-items:center;gap:13px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(228,205,139,.22)}
+.pfp{
+  width:50px;height:50px;border-radius:50%;flex-shrink:0;overflow:hidden;
+  border:1px solid var(--gold);
+  background:linear-gradient(160deg,#23274B,#14162E);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:20px;color:var(--gold-soft);
+}
+.pfp img{width:100%;height:100%;object-fit:cover}
+.pmeta b{display:block;font-family:var(--serif);font-size:15.5px;letter-spacing:.08em;color:var(--paper)}
+.pmeta span{display:block;font-size:11px;color:var(--mist);letter-spacing:.06em;margin-top:2px}
+.cta-box .lead{font-size:13.5px;color:#D8D5E6;line-height:2.05;margin-bottom:16px}
+.cta-box img.thumb{
+  width:100%;border-radius:6px;margin-bottom:14px;display:block;
+  border:1px solid rgba(228,205,139,.25);
+}
+.share-row{margin-top:14px}
+#result .retry{margin-top:12px}
+
+@media (prefers-reduced-motion: reduce){
+  .tarot{transition:none}
+  .screen.active{animation:none}
+  .progress-bar{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ イントロ ============ -->
+  <section id="intro" class="screen active">
+    <p class="brand">ジョブハピ滝川｜国家資格キャリコン × タロット</p>
+    <p class="eyebrow">Work Moyamoya Shindan</p>
+    <h1><span class="line">悩みに<span class="accent">名前</span>がつくと、</span><br><span class="line">人は動ける。</span></h1>
+    <hr class="rule">
+    <p class="subtitle">仕事のモヤモヤ正体診断</p>
+    <p class="lede">なんとなく重い。でも、何に悩んでいるのかと聞かれると、うまく言えない。そんな仕事のモヤモヤの「正体」を、10の質問で言葉にする診断です。最後に、いまのあなたに1枚のカードが出ます。</p>
+    <div class="meta">
+      <span><b>10</b>問</span>
+      <span>約<b>2</b>分</span>
+      <span><b>無料</b></span>
+    </div>
+    <button class="btn btn-gold" onclick="startQuiz()">診断をはじめる</button>
+    <p class="footer-note">この診断は、自分の状態をながめるための読みものです。<br>正しさを判定するものではありません。</p>
+  </section>
+
+  <!-- ============ 設問 ============ -->
+  <section id="quiz" class="screen">
+    <div class="progress-label"><span>QUESTION</span><span><b id="qnum">1</b> / 10</span></div>
+    <div class="progress-track"><div class="progress-bar" id="pbar"></div></div>
+    <p class="qtext" id="qtext"></p>
+    <button class="btn opt" onclick="answer(2)">よくある</button>
+    <button class="btn opt" onclick="answer(1)">たまにある</button>
+    <button class="btn opt" onclick="answer(0)">ほとんどない</button>
+    <button class="back" id="backBtn" onclick="goBack()">ひとつ前にもどる</button>
+  </section>
+
+  <!-- ============ 結果 ============ -->
+  <section id="result" class="screen">
+    <p class="eyebrow">Your Card</p>
+    <div class="card-stage">
+      <div class="tarot" id="tarot" onclick="flipCard()">
+        <div class="tarot-face tarot-back"></div>
+        <div class="tarot-face tarot-front" id="cardFront">
+          <div class="inner">
+            <div class="numeral" id="cardNumeral"></div>
+            <div class="cname" id="cardName"></div>
+            <div class="orn">✶ ✶ ✶</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="card-caption" id="cardCaption">カードをタップしてめくる</p>
+
+    <h2 class="rtitle" id="rTitle"></h2>
+    <p class="rsub" id="rSub"></p>
+
+    <div class="paper-box">
+      <p class="label">モヤモヤの正体</p>
+      <p id="rMain"></p>
+      <p class="aside" id="rAside"></p>
+    </div>
+
+    <div class="paper-box" id="stepBox">
+      <p class="label">明日の一歩</p>
+      <p id="rStep"></p>
+    </div>
+
+    <div class="paper-box">
+      <p class="label">カードの意味</p>
+      <p id="rCard"></p>
+    </div>
+
+    <div class="cta-box" id="ctaBox">
+      <div class="profile">
+        <div class="pfp" id="pfp">滝</div>
+        <div class="pmeta"><b>ジョブハピ滝川</b><span>国家資格キャリアコンサルタント × タロット</span></div>
+      </div>
+      <p class="lead" id="ctaLead"></p>
+      <img class="thumb" id="ctaThumb" alt="" style="display:none">
+      <a class="btn btn-gold" id="ctaBtn" target="_blank" rel="noopener"></a>
+    </div>
+
+    <div class="share-row" style="display:flex;gap:10px">
+      <a class="btn btn-ghost" id="shareBtn" target="_blank" rel="noopener">Xでシェア</a>
+      <a class="btn btn-ghost" id="shareThreadsBtn" target="_blank" rel="noopener">Threadsでシェア</a>
+    </div>
+    <button class="btn btn-ghost retry" onclick="location.reload()">もう一度診断する</button>
+
+    <p class="footer-note">仕事のモヤモヤ正体診断<br>ジョブハピ滝川｜国家資格キャリコン × タロット</p>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   設定：GASのWebアプリURLを貼ると、リンク・サムネ・画像を
+   スプレッドシートから読み込み、結果ログを記録します。
+   空のままでも診断はページ内蔵のデフォルト設定で完全動作します。
+============================================================ */
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzYUS7YjFLczYbc9PqZ6XYoW-gM3MVXeyiS1Ci7gFjdpTNYWD9wj1s1tfiRs_KyGII3/exec';
+
+/* プロフィールアイコンのURL（空なら「滝」の意匠丸で表示） */
+const PROFILE_IMG = 'icon.png';
+
+/* ---------- 設問（Q番号→タイプ軸） ---------- */
+const QUESTIONS = [
+  {t:'kankyo',  q:'仕事の内容より、会社の仕組みや空気にモヤッとすることが多い'},
+  {t:'houkou',  q:'「やりたいことは？」と聞かれると、言葉に詰まる'},
+  {t:'ningen',  q:'休日も、職場の誰かの顔が頭にチラつく'},
+  {t:'kusuburi',q:'「いつかやりたいこと」が頭に居座って、何年か経つ'},
+  {t:'shoutai', q:'何に悩んでいるのか、説明しようとするとうまく言えない'},
+  {t:'kankyo',  q:'別の会社で働く自分を、想像することがある'},
+  {t:'houkou',  q:'今の仕事が向いているのか、自信が持てない'},
+  {t:'ningen',  q:'職場に、本音を言える相手がいない'},
+  {t:'kusuburi',q:'動かない理由を数える方が、得意になってきた'},
+  {t:'shoutai', q:'不調ってほどじゃないのに、なんとなく毎日が重い'}
+];
+
+/* ---------- 5タイプ本文（確定版モジュール） ---------- */
+const TYPES = {
+  kankyo:{
+    name:'環境ミスマッチ型',
+    main:'あなたのモヤモヤの中心は、あなた自身ではなく「場所」にあるようです。仕事そのものより、会社の仕組みや空気に反応している。頑張りが足りないのではなく、頑張りが噛み合わない場所にいる。そういう疲れ方をしていませんか。',
+    step:'「自分に合わないな」と感じたことを、1つメモしてみてください。普段は我慢でやり過ごせていることも、書き出してみると「変えるか、離れるか」を考える材料に変わります。',
+    aside:'そこに少しだけ、「今の場所、合ってるのかな」という感覚も混ざっているようです。'
+  },
+  houkou:{
+    name:'方向迷子型',
+    main:'モヤモヤの中心は「行き先」です。今が耐えられないほど嫌なわけではない。ただ「このままでいいのか」と聞かれると、答えに詰まる。やりたいことが見つからないのは怠けているからではなく、検索窓に打ち込む言葉をまだ持っていないだけです。',
+    step:'「やりたいこと」ではなく「ちょっと嬉しかった仕事の瞬間」を1つ思い出してメモ。行き先のヒントは、たいていそっち側に落ちています。',
+    aside:'そこに少しだけ、「この先どこへ向かうんだろう」という迷いも混ざっているようです。'
+  },
+  ningen:{
+    name:'人間関係消耗型',
+    main:'モヤモヤの中心は「人」です。仕事より、職場の誰かとの間で少しずつ減っていくものがある。あなたが弱いのではありません。気配りにコストを払い続けているだけ。いわば優しさの燃費の問題です。',
+    step:'明日一日だけ「自分が悪くない場面では謝らない」を試してみてください。減り方が変わるのが分かるはずです。',
+    aside:'そこに少しだけ、人との間ですり減っている疲れも混ざっているようです。'
+  },
+  kusuburi:{
+    name:'くすぶり型',
+    main:'モヤモヤの中心は「くすぶり」です。やってみたいことがあるのに、動かない理由の方をうまく数えられてしまう。それは臆病だからではなく、守りたいものが多い人の慎重さでもあります。ただ、火種は消えていません。',
+    step:'まだ計画は要りません。「いつかやりたいこと」を誰か1人に話してみてください。声に出すと、火種の本当の大きさが分かります。',
+    aside:'そこに少しだけ、「本当はやってみたい」という火種も混ざっているようです。'
+  },
+  shoutai:{
+    name:'正体不明型',
+    main:'あなたのモヤモヤには、まだ名前がついていない段階です。何に悩んでいるのか説明できないのは、悩みがないからでも鈍いからでもありません。むしろ真剣に向き合っている人ほど、言葉が追いつかなくなるものです。',
+    step:'「なんとなく重い」と感じた瞬間に、その場で一言だけスマホにメモ。3つ集まると、輪郭が見え始めます。',
+    aside:'そこに少しだけ、まだ言葉になっていないモヤモヤも残っているようです。'
+  }
+};
+
+/* ---------- 特殊2結果 ---------- */
+const SPECIALS = {
+  uzumaki:{
+    name:'渦巻き',
+    title:'いくつもの悩みが、渦になっている時期',
+    main:'どの項目も高めでした。悩みが1つではなく、いくつも絡まって渦になっている状態かもしれません。それだけ多くのことを、一人で抱えて回してきた証拠でもあります。全部を一度にほどく必要はありません。',
+    step:'一番気になっていることを1つだけ、書き出してみてください。渦は、端から1本ずつほどけます。',
+    card:'塔'
+  },
+  sekai:{
+    name:'悩みなし',
+    title:'今のあなたに、探すほどの悩みはなさそうです',
+    main:'どの項目も低めでした。もしかすると今のあなたには、無理に探すほどの悩みはないのかもしれません。それは鈍いということではなく、今の一周をちゃんと走れているということです。この診断がお役に立てることは、今日はなさそうです。このまま進んでください。またモヤモヤした時は、いつでもどうぞ。',
+    step:null,
+    card:'世界'
+  }
+};
+
+/* ---------- 主×副→カード ---------- */
+const CARD_MATRIX = {
+  kankyo:  {houkou:'運命の輪', ningen:'皇帝', kusuburi:'戦車', shoutai:'死神'},
+  houkou:  {kankyo:'隠者', ningen:'恋人', kusuburi:'星', shoutai:'女教皇'},
+  ningen:  {kankyo:'正義', houkou:'節制', kusuburi:'力', shoutai:'吊るされた男'},
+  kusuburi:{kankyo:'魔術師', houkou:'愚者', ningen:'悪魔', shoutai:'審判'},
+  shoutai: {kankyo:'月', houkou:'太陽', ningen:'教皇', kusuburi:'女帝'}
+};
+
+/* ---------- カード意味づけ22本＋番号 ---------- */
+const CARDS = {
+  '愚者':{n:'0',m:'旅の始まりのカードです。完璧な地図より、最初の一歩を祝福します。'},
+  '魔術師':{n:'I',m:'始まりの才能のカードです。机の上に、道具はもう揃っています。'},
+  '女教皇':{n:'II',m:'直感と静けさのカードです。まだ言葉になる前の答えが、あなたの中で眠っています。'},
+  '女帝':{n:'III',m:'豊かさと休息のカードです。焦らず自分を養うことも、立派な前進です。'},
+  '皇帝':{n:'IV',m:'組織や仕組みを象徴するカードです。あなたが弱いのではなく、今の枠組みと噛み合っていないだけかもしれません。'},
+  '教皇':{n:'V',m:'対話のカードです。誰かに話を聴いてもらうこと自体が、次の扉になります。'},
+  '恋人':{n:'VI',m:'選択のカードです。人と比べるほど選べなくなります。基準を自分に戻す時です。'},
+  '戦車':{n:'VII',m:'前へ進む力のカードです。出ていくための推進力は、もう貯まり始めています。'},
+  '力':{n:'VIII',m:'ねじ伏せる強さではなく、しなやかに手なずける強さのカードです。我慢とは別の強さがあります。'},
+  '隠者':{n:'IX',m:'灯りを掲げて足元を照らすカードです。答えを外に探す前に、自分の中を見る時期です。'},
+  '運命の輪':{n:'X',m:'流れが変わる直前を告げるカードです。場所も方角も、動く時は一緒に動きます。'},
+  '正義':{n:'XI',m:'天秤のカードです。不公平感への疲れは、あなたの感覚が正常に働いている証拠です。'},
+  '吊るされた男':{n:'XII',m:'動けない時期のカードです。ただ、逆さまだからこそ見える景色がある、という意味も持っています。'},
+  '死神':{n:'XIII',m:'怖い絵ですが、意味は「終わりと再生」。何かが終わりかけている感覚は、次が始まる合図でもあります。'},
+  '節制':{n:'XIV',m:'配合を整えるカードです。人に注ぐ量と、自分に残す量。混ぜ直す時期かもしれません。'},
+  '悪魔':{n:'XV',m:'鎖のカードです。ただ、よく見るとその鎖は、ゆるく掛かっているだけです。'},
+  '塔':{n:'XVI',m:'積み上げたものが崩れる絵ですが、本当の意味は「立て直しの好機」です。崩れる前が、一番苦しいのです。'},
+  '星':{n:'XVII',m:'希望のカードです。方角はまだ見えなくても、光そのものは消えていません。'},
+  '月':{n:'XVIII',m:'もやの中を歩くカードです。輪郭が見えないのは今だけで、夜は必ず明けていきます。'},
+  '太陽':{n:'XIX',m:'明快さのカードです。難しく考えすぎているだけかもしれません。光を当てれば、正体も方角も案外シンプルに見えてきます。'},
+  '審判':{n:'XX',m:'呼び声のカードです。心の奥で鳴っている音に、気づく時が来ています。'},
+  '世界':{n:'XXI',m:'完成のカードです。一周をちゃんと走りきれている人に出ます。'}
+};
+
+/* ---------- CTAデフォルト（GAS設定があれば上書きされる） ---------- */
+const CTA_DEFAULT = {
+  kankyo:  {label:'この違和感をみてもらう', url:'https://coconala.com/services/3465805', thumb:'', show:true},
+  houkou:  {label:'向いている仕事をみてもらう', url:'https://coconala.com/services/4219568', thumb:'', show:true},
+  ningen:  {label:'この関係をみてもらう', url:'https://coconala.com/services/3506681', thumb:'', show:true},
+  kusuburi:{label:'やりたいことをみてもらう', url:'https://coconala.com/services/4225793', thumb:'', show:true},
+  shoutai: {label:'この悩みをみてもらう', url:'https://coconala.com/services/3522634', thumb:'', show:true},
+  uzumaki: {label:'悩みをまるごとみてもらう', url:'https://coconala.com/services/3522634', thumb:'', show:true},
+  sekai:   {label:'', url:'', thumb:'', show:false}
+};
+const CTA_LEAD = 'この正体を、もっとちゃんと言葉にしたい方へ。国家資格キャリアコンサルタントが、鑑定書というかたちでお作りしています。';
+const CARD_IMAGES = { /* リポジトリ同梱のライダー版。スプシ「カード画像」シートのURLがあれば上書き可能 */
+  '愚者':'0fool.jpg', '魔術師':'1magician.jpg', '女教皇':'2highpreistess.jpg',
+  '女帝':'3empress.jpg', '皇帝':'4emperor.jpg', '教皇':'5hierophant.jpg',
+  '恋人':'6lovers.jpg', '戦車':'7chariot.jpg', '力':'8strength.jpg',
+  '運命の輪':'10fortune.jpg', '正義':'11justice.jpg', '吊るされた男':'12hangedman.jpg',
+  '死神':'13death.jpg', '節制':'14temperance.jpg', '悪魔':'15devil.jpg',
+  '塔':'16tower.jpg', '星':'17star.jpg', '月':'18moon.jpg',
+  '太陽':'19sun.jpg', '世界':'21world.jpg',
+  '隠者':'9hermit.jpg', '審判':'20judgement.jpg'
+};
+
+/* ---------- 同点時の優先順位（正体不明を最優先） ---------- */
+const PRIORITY = ['shoutai','kankyo','houkou','ningen','kusuburi'];
+
+/* ============================================================ */
+let config = {cta: JSON.parse(JSON.stringify(CTA_DEFAULT)), cards:{}};
+if (PROFILE_IMG) {
+  document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('pfp').innerHTML = '<img src="' + PROFILE_IMG + '" alt="ジョブハピ滝川">';
+  });
+}
+let step = 0;
+const answers = [];
+
+/* GAS設定の読み込み（失敗しても内蔵デフォルトで動く） */
+if (GAS_URL) {
+  fetch(GAS_URL + '?action=config')
+    .then(r => r.json())
+    .then(d => {
+      if (d && d.cta) {
+        for (const k in d.cta) {
+          if (config.cta[k]) Object.assign(config.cta[k], d.cta[k]);
+        }
+      }
+      if (d && d.cards) Object.assign(config.cards, d.cards);
+    })
+    .catch(() => {});
+}
+
+function logEvent(payload){
+  if (!GAS_URL) return;
+  try {
+    fetch(GAS_URL, {method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain'},
+      body: JSON.stringify(payload)});
+  } catch(e){}
+}
+
+function show(id){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function startQuiz(){
+  step = 0; answers.length = 0;
+  renderQuestion();
+  show('quiz');
+}
+
+function renderQuestion(){
+  document.getElementById('qnum').textContent = step + 1;
+  document.getElementById('pbar').style.width = (step / QUESTIONS.length * 100) + '%';
+  document.getElementById('qtext').textContent = QUESTIONS[step].q;
+  document.getElementById('backBtn').style.visibility = step === 0 ? 'hidden' : 'visible';
+}
+
+function answer(v){
+  answers[step] = v;
+  step++;
+  if (step < QUESTIONS.length) { renderQuestion(); }
+  else { finish(); }
+}
+
+function goBack(){
+  if (step > 0) { step--; renderQuestion(); }
+}
+
+function finish(){
+  const scores = {kankyo:0, houkou:0, ningen:0, kusuburi:0, shoutai:0};
+  QUESTIONS.forEach((q,i) => { scores[q.t] += answers[i] || 0; });
+
+  const axes = Object.keys(scores);
+  const allHigh = axes.every(k => scores[k] >= 3);
+  const allLow  = axes.every(k => scores[k] <= 1);
+
+  let resultKey, mainT = null, subT = null, cardName;
+
+  if (allHigh) {
+    resultKey = 'uzumaki'; cardName = SPECIALS.uzumaki.card;
+  } else if (allLow) {
+    resultKey = 'sekai'; cardName = SPECIALS.sekai.card;
+  } else {
+    const sorted = axes.slice().sort((a,b) => {
+      if (scores[b] !== scores[a]) return scores[b] - scores[a];
+      return PRIORITY.indexOf(a) - PRIORITY.indexOf(b);
+    });
+    mainT = sorted[0]; subT = sorted[1];
+    resultKey = mainT;
+    cardName = CARD_MATRIX[mainT][subT];
+  }
+
+  renderResult(resultKey, mainT, subT, cardName);
+  logEvent({event:'complete',
+    main: mainT ? TYPES[mainT].name : SPECIALS[resultKey].name,
+    sub:  subT ? TYPES[subT].name : '',
+    card: cardName});
+  show('result');
+  setTimeout(flipCard, 900);
+}
+
+function renderResult(key, mainT, subT, cardName){
+  const card = CARDS[cardName];
+
+  /* カード面：画像があれば差し込み、なければ意匠カード */
+  const front = document.getElementById('cardFront');
+  const img = config.cards[cardName] || CARD_IMAGES[cardName];
+  if (img) {
+    front.innerHTML = '<img src="' + img + '" alt="' + cardName + '">';
+  } else {
+    document.getElementById('cardNumeral').textContent = card.n;
+    document.getElementById('cardName').textContent = cardName;
+  }
+
+  if (mainT) {
+    document.getElementById('rTitle').textContent = TYPES[mainT].name;
+    document.getElementById('rSub').textContent = '隠し味：' + TYPES[subT].name.replace('型','');
+    document.getElementById('rMain').textContent = TYPES[mainT].main;
+    document.getElementById('rAside').textContent = TYPES[subT].aside;
+    document.getElementById('rStep').textContent = TYPES[mainT].step;
+    document.getElementById('stepBox').style.display = '';
+  } else {
+    const sp = SPECIALS[key];
+    document.getElementById('rTitle').textContent = sp.title;
+    document.getElementById('rSub').textContent = '';
+    document.getElementById('rMain').textContent = sp.main;
+    document.getElementById('rAside').textContent = '';
+    if (sp.step) {
+      document.getElementById('rStep').textContent = sp.step;
+      document.getElementById('stepBox').style.display = '';
+    } else {
+      document.getElementById('stepBox').style.display = 'none';
+    }
+  }
+
+  document.getElementById('rCard').textContent = '【' + cardName + '】 ' + card.m;
+  window._currentCard = {name: cardName, n: card.n};
+
+  /* CTA */
+  const cta = config.cta[key] || {show:false};
+  const box = document.getElementById('ctaBox');
+  if (cta.show && cta.url) {
+    box.style.display = '';
+    document.getElementById('ctaLead').textContent = CTA_LEAD;
+    const btn = document.getElementById('ctaBtn');
+    btn.textContent = cta.label;
+    btn.href = cta.url;
+    btn.onclick = () => logEvent({event:'cta_click',
+      main: mainT ? TYPES[mainT].name : SPECIALS[key].name,
+      sub: subT ? TYPES[subT].name : '', card: cardName});
+    const th = document.getElementById('ctaThumb');
+    if (cta.thumb) { th.src = cta.thumb; th.style.display = 'block'; }
+    else { th.style.display = 'none'; }
+  } else {
+    box.style.display = 'none';
+  }
+
+  /* シェア */
+  const resultName = mainT ? TYPES[mainT].name : SPECIALS[key].name;
+  const text = '仕事のモヤモヤ正体診断で「' + resultName + '」でした。出たカードは【' + cardName + '】。\n#モヤモヤ正体診断\n';
+  const pageUrl = location.href.split('?')[0];
+  document.getElementById('shareBtn').href =
+    'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) +
+    '&url=' + encodeURIComponent(pageUrl);
+  document.getElementById('shareThreadsBtn').href =
+    'https://www.threads.net/intent/post?text=' + encodeURIComponent(text + pageUrl);
+}
+
+function flipCard(){
+  document.getElementById('tarot').classList.add('flipped');
+  const c = window._currentCard;
+  document.getElementById('cardCaption').textContent = c ? (c.n + ' ・ ' + c.name) : 'あなたに出た1枚';
+}
+</script>
+</body>
+</html>
